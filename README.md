@@ -1,5 +1,6 @@
 # numerica
 
-Una versión de numerica RothioTome
+Una versión de numerica de RothioTome
 
-version live ()[]
+
+[Version Live](https://github.com/altaskur/numerica/tree/main/dist)
