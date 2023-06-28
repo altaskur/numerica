@@ -11,19 +11,18 @@ client.on('message', (channel, tags, message) => {
   const userMessage = message.toString().trim();
   const userName = tags['display-name'];
 
-  if ((/^\d+$/.test(message))) {
-    console.log(`${userName}: ${userMessage}`);
-    const number = checkNumber(userMessage, gameStatus.number);
-
-    console.log(`number: ${number}`);
-    if (number) {
-      gameStatus.number = number;
-	  checkUserBlamed(userName);
-    } else {
+  if (/^\d+$/.test(userMessage)) {
+    if (userMessage !== gameStatus.lastUser) {
+      const number = checkNumber(userMessage, gameStatus.number);
+      if (number) {
+        gameStatus.number = number;
+      } else {
+        gameStatus.status = false;
+        resetGame();
+      }
       checkUserBlamed(userName);
-      gameStatus.status = false;
-      resetGame();
     }
+
     checkMaxScore();
     updateUI();
   }

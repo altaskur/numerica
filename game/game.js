@@ -11,7 +11,6 @@ export function checkNumber(userNumber, number) {
   const parsedNumber = parseInt(number, 10) + 1;
 
   console.log(`user parsed: ${parsedUserNumber} number: ${parsedNumber}`);
-
   if (parsedUserNumber === parsedNumber) {
     gameStatus.intents = 1;
     return number + 1;
